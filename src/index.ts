@@ -1,8 +1,8 @@
 const getHello = async (): Promise<string> => {
-  return "Hello World!";
+    return 'Hello World!';
 };
 
 (async () => {
-  const result = await getHello();
-  console.log(result);
+    const result = await getHello();
+    console.log(result);
 })();
