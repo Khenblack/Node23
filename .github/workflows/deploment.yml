@@ -16,7 +16,7 @@ jobs:
               run: npm test
     deploy:
         runs-on: ubuntu-latest
-        # needs: test
+        needs: test #This job depends on the test job - it will only run if the test job is successful
         steps:
             - name: Get code
               uses: actions/checkout@v4
