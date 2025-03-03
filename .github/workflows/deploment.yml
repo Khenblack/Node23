@@ -2,6 +2,7 @@ name: Deply Project
 on: [push, workflow_dispatch] #This workflow will run on push and manual trigger
 jobs:
     test:
+        name: 🧪 Tests (Unit)
         runs-on: ubuntu-latest
         steps:
             - name: Get code
@@ -12,6 +13,8 @@ jobs:
                   node-version: 23.x
             - name: Install dependencies
               run: npm ci
+            - name: Lint code
+              run: npm run lint
             - name: Run tests
               run: npm test
     deploy:

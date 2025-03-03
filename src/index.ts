@@ -3,8 +3,8 @@ const getHello = async (): Promise<string> => {
 };
 
 (async () => {
-  const result = await getHello();
-  console.log(result);
-  const cwd = process.env.cwd;
-  console.log(`Current working directory: ${cwd}`);
+    const result = await getHello();
+    console.log(result);
+    const cwd = process.env.cwd;
+    console.log(`Current working directory: ${cwd}`);
 })();
