@@ -1,0 +1,5 @@
+name: Test Project
+on: [push]
+branches:
+    - master
+jobs:
