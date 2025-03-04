@@ -1,0 +1,34 @@
+name: 👷🏽‍♂️Activity types
+on:
+    pull_request:
+        types: [opened, closed, reopened, edited, ready_for_review, synchronize]
+    workflow_dispatch:
+jobs:
+    lint:
+        name: 🧹 Lint
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get code
+              uses: actions/checkout@v4
+            - name: Use Node.js 23.x
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 23.x
+            - name: Install dependencies
+              run: npm ci
+            - name: Lint code
+              run: npm run lint
+    test:
+        name: 🧪 Tests (Unit)
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get code
+              uses: actions/checkout@v4
+            - name: Use Node.js 23.x
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 23.x
+            - name: Install dependencies
+              run: npm ci
+            - name: Run tests
+              run: npm test
