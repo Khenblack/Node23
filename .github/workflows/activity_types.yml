@@ -1,8 +1,17 @@
 name: 👷🏽‍♂️Activity types
 on:
     pull_request:
-        types: [opened, closed, reopened, edited, ready_for_review, synchronize]
+        types: [opened, reopened, edited, ready_for_review, synchronize]
+        # branches:
+        #     - main
+        #     - dev-* # dev-new dev-this-is-new
+        #     - feat/** # feat/new feat/new/button
     workflow_dispatch:
+    # push:
+    #     branches:
+    #         - main
+    #         - dev-* # dev-new dev-this-is-new
+    #         - feat/** # feat/new feat/new/button
 jobs:
     lint:
         name: 🧹 Lint
