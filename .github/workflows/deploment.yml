@@ -50,7 +50,7 @@ jobs:
               id: test_code
               run: npm test
             - name: Upload test report
-              if: steps.test_code.outcome != 'success'
+              if: failure() && steps.test_code.outcome == 'failure'
               run: echo 'Test report'
     build:
         runs-on: ubuntu-latest
