@@ -47,7 +47,11 @@ jobs:
             - name: Install dependencies
               run: npm ci
             - name: Run tests
+              id: test_code
               run: npm test
+            - name: Upload test report
+              if: steps.test_code.outcome != 'success'
+              run: echo 'Test report'
     build:
         runs-on: ubuntu-latest
         needs: [test, lint] #This job depends on the test job - it will only run if the test job is successful
