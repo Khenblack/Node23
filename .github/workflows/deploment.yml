@@ -36,6 +36,8 @@ jobs:
               uses: actions/setup-node@v4
               with:
                   node-version: 23.x
+            - name: Output secrets from GH
+              run: 'echo SECRET_FROM_GH:${{ secrets.SECRET_FROM_GH }}'
             - name: Cache dependencies
               uses: actions/cache@v3
               with:
