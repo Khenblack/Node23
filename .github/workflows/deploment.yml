@@ -5,8 +5,8 @@ on: [push, workflow_dispatch] #This workflow will run on push and manual trigger
 jobs:
     lint:
         environment: testing # refers to https://github.com/Khenblack/Node23/settings/environments - injects secrets from there
-        env:
-            NODE_ENV: 'development'
+        # env:
+        #     NODE_ENV: 'development'
         name: 🧹 Lint
         runs-on: ubuntu-latest
         steps:
