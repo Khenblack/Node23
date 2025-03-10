@@ -11,6 +11,11 @@ jobs:
               uses: actions/setup-node@v4
               with:
                   node-version: 23.x
+            - name: Cache dependencies
+              uses: actions/cache@v3
+              with:
+                  path: ~/.npm
+                  key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
             - name: Install dependencies
               run: npm ci
             - name: Lint code
@@ -25,6 +30,11 @@ jobs:
               uses: actions/setup-node@v4
               with:
                   node-version: 23.x
+            - name: Cache dependencies
+              uses: actions/cache@v3
+              with:
+                  path: ~/.npm
+                  key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
             - name: Install dependencies
               run: npm ci
             - name: Run tests
@@ -41,6 +51,11 @@ jobs:
               uses: actions/setup-node@v4
               with:
                   node-version: 23.x
+            - name: Cache dependencies
+              uses: actions/cache@v3
+              with:
+                  path: ~/.npm
+                  key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
             - name: Install dependencies
               run: npm ci
             - name: Build project
