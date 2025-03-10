@@ -38,7 +38,7 @@ jobs:
               with:
                   node-version: 23.x
             - name: Output secrets from GH
-              run: 'echo SECRET_FROM_GH:${{ secrets.SECRET_FROM_GH }}' # This is a secret from GH
+              run: echo SECRET_FROM_GH:${{ secrets.SECRET_FROM_GH }} # This is a secret from GH
             - name: Cache dependencies
               uses: actions/cache@v3
               with:
@@ -98,3 +98,11 @@ jobs:
               run: ls -R dist
             - name: Output filename
               run: echo ${{ needs.build.outputs.dist }}
+    report:
+        runs-on: ubuntu-latest
+        needs: [build] #This job depends on the test job - it will only run if the test job is successful
+        steps:
+            - name: Output information
+              run: |
+                  echo "Something went wrong"
+                  echo "${{ github }}"
