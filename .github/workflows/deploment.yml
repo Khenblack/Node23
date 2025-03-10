@@ -26,7 +26,7 @@ jobs:
             - name: Lint code
               run: npm run lint
             - name: Output information
-              run: 'echo NODE_ENV: ${{secrets.NODE_ENV}}'
+              run: 'echo NODE_ENV: ${{ env.NODE_ENV }}'
     test:
         name: 🧪 Tests (Unit)
         runs-on: ubuntu-latest
