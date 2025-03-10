@@ -1,7 +1,11 @@
 name: Deply Project
 on: [push, workflow_dispatch] #This workflow will run on push and manual trigger
+env:
+    NODE_ENV: 'production'
 jobs:
     lint:
+        env:
+            NODE_ENV: 'development'
         name: 🧹 Lint
         runs-on: ubuntu-latest
         steps:
