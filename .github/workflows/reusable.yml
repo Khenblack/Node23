@@ -1,9 +1,23 @@
 name: Reusable Deploy
-on: workflow_call # Allows to trigger the workflow from another workflow
+# Allows to trigger the workflow from another workflow
+on:
+    workflow_call:
+        inputs:
+            artifact_name:
+                description: 'Name of the artifact to download'
+                required: true
+                type: string
+                # default: dist
 jobs:
     deploy:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
+            - name: Get code
+              uses: actions/download-artifact@v4
+              with:
+                  name: ${{ inputs.artifact_name }}
+            - name: Display structure of downloaded files
+              run: ls
             - name: Deploy project
               run: echo "Deploying project from reusable workflow ..."
