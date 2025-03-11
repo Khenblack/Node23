@@ -1,31 +1,31 @@
 name: Matrix Demo
 on: push
 jobs:
-    buid:
-        continue-on-error: true
-        strategy:
-            matrix:
-                node-version: [12.x, 21.x, 22.x]
-                operating-system: [ubuntu-latest]
-                include: # Allows add standalone combinations
-                    - node-version: 23.x
-                      operating-system: ubuntu-latest
-                exclude: # Allows exclude combinations
-                    - node-version: 12.x
-                      operating-system: ubuntu-latest
-        runs-on: ${{ matrix.operating-system }}
-        steps:
-            - name: Output OS
-              run: echo ${{ matrix.operating-system }}
-            - name: Get Code
-              uses: actions/checkout@v4
-            - name: Use Node.js ${{ matrix.node-version }}
-              uses: actions/setup-node@v4
-              with:
-                  node-version: ${{ matrix.node-version }}
-            - run: node --version
-            - run: npm --version
-            - name: Install dependencies
-              run: npm ci
-            - name: Build project
-              run: npm run build
+  buid:
+    continue-on-error: true
+    strategy:
+      matrix:
+        node-version: [12.x, 21.x, 22.x]
+        operating-system: [ubuntu-latest]
+        include: # Allows add standalone combinations
+          - node-version: 23.x
+            operating-system: ubuntu-latest
+        exclude: # Allows exclude combinations
+          - node-version: 12.x
+            operating-system: ubuntu-latest
+    runs-on: ${{ matrix.operating-system }}
+    steps:
+      - name: Output OS
+        run: echo ${{ matrix.operating-system }}
+      - name: Get Code
+        uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: node --version
+      - run: npm --version
+      - name: Install dependencies
+        run: npm ci
+      - name: Build project
+        run: npm run build

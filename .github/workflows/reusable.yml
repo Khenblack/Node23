@@ -1,40 +1,40 @@
 name: Reusable Deploy
 # Allows to trigger the workflow from another workflow
 on:
-    workflow_call:
-        inputs:
-            artifact_name:
-                description: 'Name of the artifact to download'
-                required: true
-                type: string
-                # default: dist
-        secrets:
-            some-secret:
-                required: true
-        outputs:
-            result:
-                description: 'The result of the deployment'
-                value: ${{ jobs.deploy.outputs.result }}
+  workflow_call:
+    inputs:
+      artifact_name:
+        description: 'Name of the artifact to download'
+        required: true
+        type: string
+        # default: dist
+    secrets:
+      some-secret:
+        required: true
+    outputs:
+      result:
+        description: 'The result of the deployment'
+        value: ${{ jobs.deploy.outputs.result }}
 jobs:
-    deploy:
-        outputs:
-            result: ${{ steps.set-output.outputs.step-result }}
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v4
-            - name: Show secret
-              run: echo ${{ secrets.some-secret }}
-            - name: Get code
-              uses: actions/download-artifact@v4
-              with:
-                  name: ${{ inputs.artifact_name }}
-            - name: Display structure of downloaded files
-              run: ls
-            - name: Deploy project
-              run: echo "Deploying project from reusable workflow ..."
-            - name: Set output
-              id: set-output
-              run: echo "step-result=success" >> $GITHUB_OUTPUT
-            - name: Set job output
-              run: echo "result=${{ steps.set-output.outputs.step-result }}" >> $GITHUB_OUTPUT
-              shell: bash
+  deploy:
+    outputs:
+      result: ${{ steps.set-output.outputs.step-result }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Show secret
+        run: echo ${{ secrets.some-secret }}
+      - name: Get code
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.artifact_name }}
+      - name: Display structure of downloaded files
+        run: ls
+      - name: Deploy project
+        run: echo "Deploying project from reusable workflow ..."
+      - name: Set output
+        id: set-output
+        run: echo "step-result=success" >> $GITHUB_OUTPUT
+      - name: Set job output
+        run: echo "result=${{ steps.set-output.outputs.step-result }}" >> $GITHUB_OUTPUT
+        shell: bash
