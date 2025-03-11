@@ -108,6 +108,8 @@ jobs:
     desploy_reused:
         needs: [build] #This job depends on the test job - it will only run if the test job is successful
         uses: ./.github/workflows/reusable.yml # Using a reusable workflow as a step, that's not possible. A reusable workflow must be called at the job level, contrary to custom actions (which must be called as steps)
+        with:
+            artifact_name: dist-files
     report:
         runs-on: ubuntu-latest
         needs: [lint, test, build, deploy] #This job depends on the all above jobs - it will only run if any of them fails
