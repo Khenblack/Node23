@@ -100,7 +100,9 @@ jobs:
             - name: Get build artifacts
               uses: actions/download-artifact@v4
               with:
-                  name: dist-files
+                  artifact_name: dist-files
+              # secrets:
+              #     some-secret: ${{ secrets.SECRET_FROM_GH }}
             - name: Display structure of downloaded files
               run: ls -R dist
             - name: Output filename

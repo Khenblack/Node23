@@ -8,6 +8,9 @@ on:
                 required: true
                 type: string
                 # default: dist
+        secrets:
+            some-secret:
+                required: true
 jobs:
     deploy:
         runs-on: ubuntu-latest
