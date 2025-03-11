@@ -1,0 +1,8 @@
+name: Reusable Deploy
+on: workflow_call # Allows to trigger the workflow from another workflow
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Deploy project
+              run: echo "Deploying project from reusable workflow ..."
