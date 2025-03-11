@@ -7,6 +7,12 @@ jobs:
             matrix:
                 node-version: [12.x, 21.x, 22.x]
                 operating-system: [ubuntu-latest]
+                include: # Allows add standalone combinations
+                    - node-version: 23.x
+                      operating-system: ubuntu-latest
+                exclude: # Allows exclude combinations
+                    - node-version: 12.x
+                      operating-system: ubuntu-latest
         runs-on: ${{ matrix.operating-system }}
         steps:
             - name: Output OS
