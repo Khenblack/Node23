@@ -101,8 +101,9 @@ jobs:
               uses: actions/download-artifact@v4
               with:
                   name: dist-files
+                  path: .
             - name: Display structure of downloaded files
-              run: ls -R dist-files
+              run: ls -la
             - name: Output filename
               run: echo ${{ needs.build.outputs.dist }}
     desploy_reused:
