@@ -106,12 +106,12 @@ jobs:
             - name: Output filename
               run: echo ${{ needs.build.outputs.dist }}
     desploy_reused:
-        runs-on: ubuntu-latest
+        # runs-on: ubuntu-latest
         needs: [build] #This job depends on the test job - it will only run if the test job is successful
-        # uses: ./.github/workflows/reusable.yml # another way to reuse a job
-        steps:
-            - name: Reuse deploy job
-              uses: ./.github/workflows/reusable.yml
+        uses: ./.github/workflows/reusable.yml # another way to reuse a job
+        # steps:
+        #     - name: Reuse deploy job
+        #       uses: ./.github/workflows/reusable.yml
     report:
         runs-on: ubuntu-latest
         needs: [lint, test, build, deploy] #This job depends on the all above jobs - it will only run if any of them fails
