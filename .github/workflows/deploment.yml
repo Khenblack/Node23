@@ -102,7 +102,7 @@ jobs:
               with:
                   artifact_name: dist-files
             - name: Display structure of downloaded files
-              run: ls -R -files
+              run: ls -R dist-files
             - name: Output filename
               run: echo ${{ needs.build.outputs.dist }}
     desploy_reused:
