@@ -103,7 +103,7 @@ jobs:
                   name: dist-files
                   path: .
             - name: Display structure of downloaded files
-              run: ls -la
+              run: ls -la dist
             - name: Output filename
               run: echo ${{ needs.build.outputs.dist }}
     desploy_reused:
