@@ -11,8 +11,14 @@ on:
         secrets:
             some-secret:
                 required: true
+        outputs:
+            result:
+                description: 'The result of the deployment'
+                value: ${{ jobs.deploy.outputs.result }}
 jobs:
     deploy:
+        outputs:
+            result: ${{ steps.set-output.outputs.step-result }}
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
@@ -26,3 +32,6 @@ jobs:
               run: ls
             - name: Deploy project
               run: echo "Deploying project from reusable workflow ..."
+            - name: Set output
+              id: set-output
+              run: echo "step-result=success" >> $GITHUB_ENV
