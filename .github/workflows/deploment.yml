@@ -52,6 +52,7 @@ jobs:
               run: npm ci
             - name: Run tests
               id: test_code
+              #continue-on-error: true # This will allow the workflow to continue even if the tests fail
               run: npm test
             - name: Upload test report
               if: failure() && steps.test_code.outcome == 'failure'
