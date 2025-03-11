@@ -34,4 +34,7 @@ jobs:
               run: echo "Deploying project from reusable workflow ..."
             - name: Set output
               id: set-output
-              run: echo "step-result=success" >> $GITHUB_ENV
+              run: echo "step-result=success" >> $GITHUB_OUTPUT
+            - name: Set job output
+              run: echo "result=${{ steps.set-output.outputs.step-result }}" >> $GITHUB_OUTPUT
+              shell: bash
