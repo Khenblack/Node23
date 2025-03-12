@@ -1,0 +1,13 @@
+name: Deply Project
+on: [push, workflow_dispatch] #This workflow will run on push and manual trigger
+jobs:
+    lint:
+        name: 🧹 Lint
+        runs-on: ubuntu-latest
+        container:
+            image: node:23-alpine
+        steps:
+            - name: Load & cache dependencies
+              uses: ./.github/actions/cached-deps
+            - name: Lint code
+              run: npm run lint
