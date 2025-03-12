@@ -1,0 +1,25 @@
+{
+    "type": "record",
+    "name": "Event1",
+    "namespace": "com.test.events.v1",
+    "fields": [
+        {
+            "name": "id",
+            "type": "string"
+        },
+        {
+            "name": "email",
+            "type": "string"
+        },
+        {
+            "name": "name",
+            "type": ["null", "string"],
+            "default": null
+        },
+        {
+            "name": "type",
+            "type": ["null", "string"],
+            "default": null
+        }
+    ]
+}

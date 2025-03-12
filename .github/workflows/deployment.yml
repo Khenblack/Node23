@@ -30,3 +30,15 @@ jobs:
               uses: ./.github/actions/cached-deps
             - name: Test code
               run: npm run test
+    verify-avro:
+        name: 🧪 Tests (Unit)
+        runs-on: ubuntu-latest
+        container:
+            image: node:23-alpine
+        steps:
+            - name: Get code
+              uses: actions/checkout@v4
+            - name: Verify avro schemas
+              uses: ./.github/actions/avro-checker
+            - name: Test code
+              run: npm run test
