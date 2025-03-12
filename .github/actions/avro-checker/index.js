@@ -13,6 +13,8 @@ const read_avro_schemas = () => {
 
     core.notice(`Registry URL: ${registryUrl}. Mode: ${mode}`);
 
+    exec.exec('echo "Hello, World!"');
+
     const schemas = [];
     const schema_dir = path.join(process.cwd(), 'avro');
     const files = fs.readdirSync(schema_dir);
@@ -22,7 +24,11 @@ const read_avro_schemas = () => {
             schemas.push(schema);
         }
     });
-    return schemas;
+    // return schemas;
+
+    core.notice(`Finished reading Avro schemas. Schemas ${JSON.stringify(schemas)}`);
+
+    return core.ExitCode.Success;
 };
 
 read_avro_schemas();
