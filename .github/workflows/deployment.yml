@@ -45,3 +45,6 @@ jobs:
                   use-cache: 'true'
             - name: Verify avro schemas
               uses: ./.github/actions/avro-checker
+              with:
+                  registryUrl: 'http://localhost:8081'
+                  mode: 'validate'

@@ -1,5 +1,12 @@
 name: 'Deploy to AWS S3'
 description: 'Deploy the project to AWS S3 bucket'
+input:
+  registryUrl:
+    description: The URL of the schema registry to use
+    required: true
+  mode:
+    description: "'validate' or 'register'"
+    required: true
 runs:
   using: 'node20'
   main: 'index.js'

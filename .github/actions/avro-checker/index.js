@@ -7,6 +7,12 @@ const path = require('path');
 
 const read_avro_schemas = () => {
     core.notice('Reading Avro schemas');
+    // 1) Input values
+    const registryUrl = core.getInput('registryUrl', { required: true, trimWhitespace: true });
+    const mode = core.getInput('mode', { required: true, trimWhitespace: true });
+
+    core.notice(`Registry URL: ${registryUrl}. Mode: ${mode}`);
+
     const schemas = [];
     const schema_dir = path.join(process.cwd(), 'avro');
     const files = fs.readdirSync(schema_dir);
