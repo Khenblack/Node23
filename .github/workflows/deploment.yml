@@ -9,13 +9,15 @@ jobs:
     #     NODE_ENV: 'development'
     name: 🧹 Lint
     runs-on: ubuntu-latest
+    container:
+      image: node:23-alpine
     steps:
       - name: Get code
         uses: actions/checkout@v4
-      - name: Use Node.js 23.x
-        uses: actions/setup-node@v4
-        with:
-          node-version: 23.x
+      # - name: Use Node.js 23.x
+      #   uses: actions/setup-node@v4
+      #   with:
+      #     node-version: 23.x
       - name: Cache dependencies
         id: cache
         uses: actions/cache@v3
