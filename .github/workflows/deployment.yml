@@ -31,7 +31,7 @@ jobs:
             - name: Test code
               run: npm run test
     verify-avro:
-        name: 🧪 Tests (Unit)
+        name: 🧪 Verify Avro schemas
         runs-on: ubuntu-latest
         container:
             image: node:23-alpine
