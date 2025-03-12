@@ -28,7 +28,7 @@ const read_avro_schemas = () => {
 
     core.notice(`Finished reading Avro schemas. Schemas ${JSON.stringify(schemas)}`);
 
-    return core.ExitCode.Success;
+    return core.ExitCode.Failure;
 };
 
 read_avro_schemas();
