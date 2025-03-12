@@ -38,5 +38,10 @@ jobs:
         steps:
             - name: Get code
               uses: actions/checkout@v4
+            - name: Load & cache dependencies
+              id: cache-deps
+              uses: ./.github/actions/cached-deps
+              with:
+                  use-cache: 'true'
             - name: Verify avro schemas
               uses: ./.github/actions/avro-checker
