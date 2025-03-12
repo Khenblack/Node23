@@ -1,4 +1,4 @@
-name: Deply Project
+name: Deploy Project
 on: [push, workflow_dispatch] #This workflow will run on push and manual trigger
 jobs:
     lint:
