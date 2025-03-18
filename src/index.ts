@@ -1,3 +1,5 @@
+import { type Logger } from '@khenblack/packages-test';
+
 const getHello = async (): Promise<string> => {
     return 'Hello World!';
 };
