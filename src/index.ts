@@ -1,12 +1,10 @@
-import { type Logger } from '@khenblack/packages-test';
+import { ConsoleLogger, type Logger } from '@khenblack/packages-test';
 
-const getHello = async (): Promise<string> => {
-    return 'Hello World!';
+const getHello = (): void => {
+    const logger: Logger = new ConsoleLogger();
+    logger.info('Hello World!');
 };
 
 (async () => {
     const result = await getHello();
-    console.log(result);
-    const cwd = process.env.cwd;
-    console.log(`Current working directory: ${cwd}`);
 })();
