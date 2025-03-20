@@ -1,14 +1,25 @@
 {
+    "ts-node": { "files": true },
     "compilerOptions": {
-        "target": "ES2024",
-        "module": "ESNext", // or "ES2024"
-        "moduleResolution": "node10",
-        "outDir": "./dist",
-        "rootDir": "./src",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "sourceMap": true,
         "strict": true,
-        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "module": "commonjs",
+        "target": "ES2024",
         "skipLibCheck": true,
-        "baseUrl": "."
+        "esModuleInterop": true,
+        "baseUrl": ".",
+        "useUnknownInCatchVariables": false,
+        "inlineSources": true,
+        "noEmitOnError": true,
+        "strictNullChecks": true,
+        "resolveJsonModule": true,
+        "sourceRoot": "/",
+        "outDir": "build",
+        "lib": ["ES2015", "ES2016", "ES2017", "ES2018", "ES2019", "ES2020", "DOM"],
+        "typeRoots": ["./node_modules/@types"]
     },
-    "include": ["src/**/*"]
+    "exclude": ["**/**/**/__tests__/*", "./setupEnzyme.ts", "**/**/**/__mocks__/*"]
 }

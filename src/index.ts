@@ -1,9 +1,11 @@
-import { ConsoleLogger, type Logger } from '@khenblack/packages-test';
+// import { subpath1 } from '@khenblack/packages-test/subpath1';
 
-const getHello = (): void => {
-    const logger: Logger = new ConsoleLogger();
-    logger.info('Hello World!');
-};
+import { getHello } from './console';
+
+// const getHello = (): void => {
+//     subpath1();
+//     console.info('Hello World!');
+// };
 
 (async () => {
     const result = await getHello();
