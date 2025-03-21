@@ -33,6 +33,6 @@
         "typescript-eslint": "^8.27.0"
     },
     "dependencies": {
-        "@khenblack/packages-test": "1.0.29"
+        "@khenblack/packages-test": "1.0.30"
     }
 }
