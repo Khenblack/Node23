@@ -1,8 +1,8 @@
-import { subpath1 } from '@khenblack/packages-test/subpath1';
+import { Logger, ConsoleLogger } from '@khenblack/packages-test/logger';
 
 const getHello = (): void => {
-    subpath1();
-    console.info('Hello World!');
+    const logger: Logger = new ConsoleLogger();
+    logger.info('Hello World!');
 };
 
 export { getHello };
