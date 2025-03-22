@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@khenblack/packages-test':
-        specifier: 1.0.30
-        version: 1.0.30
+        specifier: 1.0.37
+        version: 1.0.37
     devDependencies:
       '@eslint/js':
         specifier: ^9.22.0
@@ -385,8 +385,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
 
-  '@khenblack/packages-test@1.0.30':
-    resolution: {integrity: sha512-8PsyQrijzyNu+V8msk75biwa+d4gWEhjDhXxZOZa7R+ZZOVkezuVPunRRiYRXZfeHMFrgikSNBEuetQjFU+6+A==, tarball: https://npm.pkg.github.com/download/@khenblack/packages-test/1.0.30/4c24014eadb977ae3449a3ac960b40eaf1594bbb}
+  '@khenblack/packages-test@1.0.37':
+    resolution: {integrity: sha512-UyOsBEg615vnvvdc8xHW7v4Aw1lgZbINcYTjKGtjFfocOL+0sN1KNHHJgK5yjT42RvaAvIDSjFzd/CY2H0kmzQ==, tarball: https://npm.pkg.github.com/download/@khenblack/packages-test/1.0.37/cbd84990cc4bd4fbdf73e0a419be26369bb10abb}
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -2533,7 +2533,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@khenblack/packages-test@1.0.30': {}
+  '@khenblack/packages-test@1.0.37': {}
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
